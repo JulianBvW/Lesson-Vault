@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useLessonsStore } from '@/stores/lessons.js'
 
+import Lesson from '@/components/Lesson.vue'
+
 const piniaLessonsStore = useLessonsStore()
 const { lessons } = storeToRefs(piniaLessonsStore)
 
@@ -21,9 +23,8 @@ function addLesson() {
     <main>
         <div class="container">
             <h1>Lektionen</h1>
-            {{ lessons }}
-            
-            <input v-model="newLessonName" type="text">
+            <Lesson v-for="lesson in lessons" :id="lesson.id" />
+            <input v-model="newLessonName" type="text" v-on:keyup.enter="addLesson()">
             <button @click="addLesson()">Lektion hinzufügen</button>
         </div>
     </main>
