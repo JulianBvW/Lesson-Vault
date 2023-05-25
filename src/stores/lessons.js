@@ -15,7 +15,7 @@ export const useLessonsStore = defineStore('lessons', {
     actions: {
         addLesson(name, icon) {
             this.lessons.push({
-                id: nextId++,
+                id: this.nextId++,
                 name: name,
                 icon: icon,
                 stars: 0
