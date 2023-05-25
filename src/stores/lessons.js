@@ -15,7 +15,7 @@ export const useLessonsStore = defineStore('lessons', {
     actions: {
         addLesson(name, icon) {
             this.lessons.push({
-                id: 0,
+                id: nextId++,
                 name: name,
                 icon: icon,
                 stars: 0
@@ -23,6 +23,8 @@ export const useLessonsStore = defineStore('lessons', {
         }
     },
     getters: {
-
+        getLessonById: (state) => {
+            return (id) => state.lessons.find(lesson => lesson.id === id);
+        }
     }
 })
