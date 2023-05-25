@@ -10,7 +10,7 @@ const lesson = piniaLessonsStore.getLessonById(id)
 </script>
 
 <template>
-    <div class="lessonContainer">
+    <div @click="$router.push('/lesson/' + id)" class="lessonContainer">
         <h3>{{ lesson.name }}</h3>
     </div>
 </template>

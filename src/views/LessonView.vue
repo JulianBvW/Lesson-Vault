@@ -10,6 +10,7 @@ const { lessons } = storeToRefs(piniaLessonsStore)
 
 const newLessonName = ref('')
 const newLessonIcon = ref('')
+
 function addLesson() {
     if (newLessonName.value !== '') {
         piniaLessonsStore.addLesson(newLessonName.value, newLessonIcon.value)
