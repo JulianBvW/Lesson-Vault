@@ -1,5 +1,4 @@
 <script setup>
-import { storeToRefs } from 'pinia'
 import { useLessonsStore } from '@/stores/lessons.js'
 
 const props = defineProps(['id'])
