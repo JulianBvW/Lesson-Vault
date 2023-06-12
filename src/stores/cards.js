@@ -47,6 +47,14 @@ export const useCardsStore = defineStore('cards', {
             })
             this.saveToLocalStorage()
         },
+        updateAfterTraining(cardInfos) {
+            for (let info of cardInfos) {
+                let card = this.cards.find(c => c.id === info.id)
+                let levelDiff = info.correct ? 1 : -1
+                card[info.side].level = Math.max(Math.min(card[info.side].level + levelDiff, 5), 0)
+                // TODO stat & lastSeen & reachedTopLevel
+            }
+        },
 
         saveToLocalStorage() {
             localStorage.setItem('cards', JSON.stringify(this.cards))

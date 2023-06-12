@@ -32,7 +32,7 @@ const cardsPerLevel = computed(() => {
     let levels = [...new Array(MAX_LEVEL)].map(_ => [])
 
     for (let card of cards.value) {
-        let level = ((side === 'W2T') ? card.W2T.level : card.T2W.level)
+        let level = card[side.value].level
         levels[level].push(card)
     }
 
@@ -65,7 +65,10 @@ function addVocabulary() {
 
             <div v-for="(cards, level) in cardsPerLevel">
                 <div style="width: 100%; background-color: aqua;">Ebene {{ level + 1 }} ({{ cards.length }})</div>
-                <p v-for="card in cards">{{ card.word }} | {{ card.translation }}</p>
+                <p v-for="card in cards">
+                    <div v-if="side === 'W2T'">{{ card.word }} | {{ card.translation }}</div>
+                    <div v-if="side === 'T2W'">{{ card.translation }} | {{ card.word }}</div>
+                </p>
             </div>
 
             <input v-model="newVocabularyWord" type="text">
