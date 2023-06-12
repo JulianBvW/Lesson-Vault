@@ -3,6 +3,7 @@
 
 <template>
   <main>
+    <button @click="$router.push('/lessons/')">Lessons</button>
   </main>
 </template>
 
