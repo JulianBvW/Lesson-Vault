@@ -14,12 +14,14 @@ const cards = computed(() => { return piniaCardsStore.getCardsByLessonId(lessonI
 
 const newVocabularyWord = ref('')
 const newVocabularyTranslation = ref('')
+const newVocabularyInfo = ref('')
 
 function addVocabulary() {
     if (newVocabularyWord.value !== '' && newVocabularyTranslation.value !== '') {
-        piniaCardsStore.addCard(lessonId, newVocabularyWord.value, newVocabularyTranslation.value)
+        piniaCardsStore.addCard(lessonId, newVocabularyWord.value, newVocabularyTranslation.value, newVocabularyInfo.value)
         newVocabularyWord.value = ''
         newVocabularyTranslation.value = ''
+        newVocabularyInfo.value = ''
     }
 }
 </script>
@@ -32,6 +34,7 @@ function addVocabulary() {
             <p v-for="card in cards">{{ card.word }} | {{ card.translation }}</p>
             <input v-model="newVocabularyWord" type="text">
             <input v-model="newVocabularyTranslation" type="text" v-on:keyup.enter="addVocabulary()">
+            <input v-model="newVocabularyInfo" type="text" v-on:keyup.enter="addVocabulary()">
             <button @click="addVocabulary()">Vokabel hinzufügen</button>
         </div>
     </main>

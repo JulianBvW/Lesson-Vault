@@ -25,12 +25,13 @@ export const useCardsStore = defineStore('cards', {
         }
     }),
     actions: {
-        addCard(lessonId, word, translation, additionalParams = null) { // TODO add additional params
+        addCard(lessonId, word, translation, info, additionalParams = null) { // TODO add additional params
             this.cards.push({
                 id: this.nextId++,
                 lessonId: lessonId,
                 word: word,
                 translation: translation,
+                info: info,
                 W2T: {
                     level: 0,
                     stats: [0, 0],
