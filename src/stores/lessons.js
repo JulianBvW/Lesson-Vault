@@ -20,7 +20,19 @@ export const useLessonsStore = defineStore('lessons', {
                 icon: icon,
                 stars: 0
             })
-        }
+            this.saveToLocalStorage()
+        },
+
+        saveToLocalStorage() {
+            localStorage.setItem('lessons', JSON.stringify(this.lessons))
+            localStorage.setItem('lessons-nextId', JSON.stringify(this.nextId))
+        },
+        loadFromLocalStorage() {
+            const lessons = JSON.parse(localStorage.getItem('lessons'))
+            const nextId = JSON.parse(localStorage.getItem('lessons-nextId'))
+            if (lessons) { this.lessons = lessons }
+            if (nextId) { this.nextId = nextId }
+        },
     },
     getters: {
         getLessonById: (state) => {

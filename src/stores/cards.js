@@ -44,7 +44,19 @@ export const useCardsStore = defineStore('cards', {
                     reachedTopLevel: false
                 }
             })
-        }
+            this.saveToLocalStorage()
+        },
+
+        saveToLocalStorage() {
+            localStorage.setItem('cards', JSON.stringify(this.cards))
+            localStorage.setItem('cards-nextId', JSON.stringify(this.nextId))
+        },
+        loadFromLocalStorage() {
+            const cards = JSON.parse(localStorage.getItem('cards'))
+            const nextId = JSON.parse(localStorage.getItem('cards-nextId'))
+            if (cards) { this.cards = cards }
+            if (nextId) { this.nextId = nextId }
+        },
     },
     getters: {
         getCardsByLessonId: (state) => {
