@@ -36,6 +36,7 @@ function addVocabulary() {
             <input v-model="newVocabularyTranslation" type="text" v-on:keyup.enter="addVocabulary()">
             <input v-model="newVocabularyInfo" type="text" v-on:keyup.enter="addVocabulary()">
             <button @click="addVocabulary()">Vokabel hinzufügen</button>
+            <button @click="$router.push('/lesson/' + lesson.id + '/train')">Trainieren</button>
         </div>
     </main>
 </template>
