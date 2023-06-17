@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-MAX_LEVEL = 5 // [0, 1, 2, 3, 4, 5]
+let MAX_LEVEL = 5 // [0, 1, 2, 3, 4, 5]
 
 export const useCardsStore = defineStore('cards', {
     state: () => ({
