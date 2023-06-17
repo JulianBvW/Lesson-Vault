@@ -12,6 +12,7 @@ piniaCardsStore.loadFromLocalStorage()
 
 <template>
     <RouterView />
+    <footer style="position: fixed; margin-top: auto;">Test</footer>
 </template>
 
 <style scoped></style>

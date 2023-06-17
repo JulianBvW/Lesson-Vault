@@ -55,11 +55,11 @@ export const useCardsStore = defineStore('cards', {
 
                 cardside.lastSeen = Date.now()
                 if (info.correct) {
-                    cardside.level = Math.max(Math.min(card[info.side].level + 1, MAX_LEVEL), 0)
+                    cardside.level = Math.max(Math.min(cardside.level + 1, MAX_LEVEL), 0)
                     cardside.stats[0] += 1
                     if (cardside.level == MAX_LEVEL) { cardside.reachedTopLevel = true }
                 } else {
-                    cardside.level = Math.max(Math.min(card[info.side].level - 1, MAX_LEVEL), 0)
+                    cardside.level = Math.max(Math.min(cardside.level - 1, MAX_LEVEL), 0)
                     cardside.stats[1] += 1
                 }
             }
