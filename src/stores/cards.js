@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 
+MAX_LEVEL = 5 // [0, 1, 2, 3, 4, 5]
+
 export const useCardsStore = defineStore('cards', {
     state: () => ({
         cards: [],
@@ -49,11 +51,19 @@ export const useCardsStore = defineStore('cards', {
         },
         updateAfterTraining(cardInfos) {
             for (let info of cardInfos) {
-                let card = this.cards.find(c => c.id === info.id)
-                let levelDiff = info.correct ? 1 : -1
-                card[info.side].level = Math.max(Math.min(card[info.side].level + levelDiff, 5), 0)
-                // TODO stat & lastSeen & reachedTopLevel
+                let cardside = this.cards.find(c => c.id === info.id)[info.side]
+
+                cardside.lastSeen = Date.now()
+                if (info.correct) {
+                    cardside.level = Math.max(Math.min(card[info.side].level + 1, MAX_LEVEL), 0)
+                    cardside.stats[0] += 1
+                    if (cardside.level == MAX_LEVEL) { cardside.reachedTopLevel = true }
+                } else {
+                    cardside.level = Math.max(Math.min(card[info.side].level - 1, MAX_LEVEL), 0)
+                    cardside.stats[1] += 1
+                }
             }
+            this.saveToLocalStorage()
         },
 
         saveToLocalStorage() {
