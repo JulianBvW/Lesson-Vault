@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import NavBar from '@/components/NavBar.vue'
 
 import { useLessonsStore } from '@/stores/lessons.js'
 const piniaLessonsStore = useLessonsStore()
@@ -11,8 +12,8 @@ piniaCardsStore.loadFromLocalStorage()
 </script>
 
 <template>
-    <RouterView />
-    <footer style="position: fixed; top: auto; bottom: 0; background-color: blueviolet; height: 5rem; width: 100vw;">Test</footer>
+    <RouterView style="margin-bottom: calc( var(--footer-height) + 1rem );" />
+    <NavBar />
 </template>
 
 <style>

@@ -23,6 +23,11 @@ const router = createRouter({
             path: '/lesson/:id/train',
             name: 'train',
             component: () => import('../views/LessonTrainView.vue')
+        },
+        {
+            path: '/groups',
+            name: 'groups',
+            component: () => import('../views/GroupView.vue')
         }
     ]
 })

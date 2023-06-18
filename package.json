@@ -9,10 +9,13 @@
   },
   "dependencies": {
     "pinia": "^2.0.36",
+    "unplugin-icons": "^0.16.3",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"
   },
   "devDependencies": {
+    "@iconify-icons/mdi": "^1.2.46",
+    "@iconify/vue": "^4.1.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.3.5"
   }
