@@ -17,4 +17,7 @@ piniaCardsStore.loadFromLocalStorage()
 </template>
 
 <style>
+main {
+    padding: 1rem;
+}
 </style>
