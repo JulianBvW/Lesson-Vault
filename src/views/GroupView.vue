@@ -3,7 +3,7 @@
 
 <template>
     <main>
-        <h1>Groups TODO</h1>
+        <h1>Groups</h1>
     </main>
 </template>
 

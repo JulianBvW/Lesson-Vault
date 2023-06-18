@@ -6,6 +6,7 @@ function resetStorage() {
 
 <template>
   <main>
+    <h1>Home</h1>
     <button @click="$router.push('/lessons/')">Lessons</button>
     <button @click="resetStorage">Reset localStorage</button>
   </main>

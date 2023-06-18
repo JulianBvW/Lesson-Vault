@@ -19,5 +19,10 @@ piniaCardsStore.loadFromLocalStorage()
 <style>
 main {
     padding: 1rem;
+    padding-top: 2rem;
+}
+h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
 }
 </style>
