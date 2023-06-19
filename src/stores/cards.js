@@ -15,13 +15,13 @@ export const useCardsStore = defineStore('cards', {
             W2T: {
                 level: 0,
                 stats: [0, 0], // Got right (stats[0]) vs got wrong (stats[1])
-                lastSeen: null,
+                lastPractice: null,
                 reachedTopLevel: false
             },
             T2W: {
                 level: 0,
                 stats: [0, 0], // Got right (stats[0]) vs got wrong (stats[1])
-                lastSeen: null,
+                lastPractice: null,
                 reachedTopLevel: false
             }
         }
@@ -37,13 +37,13 @@ export const useCardsStore = defineStore('cards', {
                 W2T: {
                     level: 0,
                     stats: [0, 0],
-                    lastSeen: null,
+                    lastPractice: null,
                     reachedTopLevel: false
                 },
                 T2W: {
                     level: 0,
                     stats: [0, 0],
-                    lastSeen: null,
+                    lastPractice: null,
                     reachedTopLevel: false
                 }
             })
@@ -53,7 +53,7 @@ export const useCardsStore = defineStore('cards', {
             for (let info of cardInfos) {
                 let cardside = this.cards.find(c => c.id === info.id)[info.side]
 
-                cardside.lastSeen = Date.now()
+                cardside.lastPractice = Date.now()
                 if (info.correct) {
                     cardside.level = Math.max(Math.min(cardside.level + 1, MAX_LEVEL), 0)
                     cardside.stats[0] += 1

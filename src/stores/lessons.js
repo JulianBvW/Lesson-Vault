@@ -9,7 +9,9 @@ export const useLessonsStore = defineStore('lessons', {
             id: 0,
             name: '',
             icon: '',
-            stars: 0
+            stars: 0,
+            stats: [0, 0, 0], // [new, intermediate, finished]
+            lastPractice: null
         }
     }),
     actions: {
