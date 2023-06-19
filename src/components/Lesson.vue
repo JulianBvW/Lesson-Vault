@@ -10,15 +10,66 @@ const lesson = piniaLessonsStore.getLessonById(id)
 </script>
 
 <template>
-    <div @click="$router.push('/lesson/' + id)" class="lessonContainer">
-        <h3>{{ lesson.name }}</h3>
+    <div class="container" @click="$router.push('/lesson/' + id)">
+        <div class="circle"></div>
+        <p class="name">{{ lesson.name }}</p>
+        <p class="stats">20 / 10 / 2</p>
+        <p class="stars">★ ★ ★</p>
+        <p class="last">zuletzt 04.05.2023</p>
     </div>
 </template>
 
 <style scoped>
-.lessonContainer {
-    margin: 0.2rem;
-    padding: 0.5rem;
-    background-color: grey;
+.container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 5rem 1.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: left;
+    align-content: center;
+}
+
+.circle {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    height: 5rem;
+    width: 5rem;
+    background-color: var(--color-background-island);
+    border-radius: 100%;
+    border: 5px solid var(--color-action);
+}
+
+.name {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+}
+
+.stars {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    justify-self: flex-end;
+    font-size: 1.3rem;
+    color: gold;
+}
+
+.stats {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    margin-left: 1rem;
+    color: var(--color-text-soft);
+    font-weight: bold;
+    font-size: small;
+    margin-top: 0.5rem;
+}
+
+.last {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    justify-self: flex-end;
+    color: var(--color-text-soft);
+    font-size: small;
+    margin-top: 0.5rem;
 }
 </style>

@@ -33,8 +33,14 @@ function addLesson() {
 
 <style scoped>
 .container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    max-width: 50rem;
+    max-width: 50rem; */
+    width: 100%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
 }
 </style>
