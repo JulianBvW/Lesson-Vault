@@ -5,7 +5,6 @@ const props = defineProps(['id'])
 const id = props.id
 
 const piniaLessonsStore = useLessonsStore()
-
 const lesson = piniaLessonsStore.getLessonById(id)
 </script>
 
@@ -13,9 +12,9 @@ const lesson = piniaLessonsStore.getLessonById(id)
     <div class="container" @click="$router.push('/lesson/' + id)">
         <div class="circle"></div>
         <p class="name">{{ lesson.name }}</p>
-        <p class="stats">20 / 10 / 2</p>
-        <p class="stars">★ ★ ★</p>
-        <p class="last">zuletzt 04.05.2023</p>
+        <p class="stats">{{ lesson.stats.join(' / ') }}</p>
+        <p class="stars">{{ '★'.repeat(lesson.stars) }}</p>
+        <p class="last">zuletzt {{ lesson.lastPractice.toLocaleDateString('de-DE') }}</p>
     </div>
 </template>
 
@@ -32,8 +31,8 @@ const lesson = piniaLessonsStore.getLessonById(id)
 .circle {
     grid-column: 1/2;
     grid-row: 1/3;
-    height: 5rem;
-    width: 5rem;
+    height: 4.5rem;
+    width: 4.5rem;
     background-color: var(--color-background-island);
     border-radius: 100%;
     border: 5px solid var(--color-action);
@@ -42,16 +41,18 @@ const lesson = piniaLessonsStore.getLessonById(id)
 .name {
     grid-column: 2/3;
     grid-row: 1/2;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-left: 1rem;
+    margin-top: 0.2rem;
 }
 
 .stars {
     grid-column: 3/4;
     grid-row: 1/2;
     justify-self: flex-end;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: gold;
+    margin-top: 0.2rem;
 }
 
 .stats {

@@ -20,7 +20,9 @@ export const useLessonsStore = defineStore('lessons', {
                 id: this.nextId++,
                 name: name,
                 icon: icon,
-                stars: 0
+                stars: 0,
+                stats: [0, 0, 0],
+                lastPractice: new Date()
             })
             this.saveToLocalStorage()
         },
