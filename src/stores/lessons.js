@@ -5,7 +5,7 @@ export const useLessonsStore = defineStore('lessons', {
         lessons: [],
         nextId: 0,
 
-        lessonTemplate: {
+        lessonTemplate: { // TODO calculate these values
             id: 0,
             name: '',
             icon: '',
@@ -22,7 +22,7 @@ export const useLessonsStore = defineStore('lessons', {
                 icon: icon,
                 stars: 0,
                 stats: [0, 0, 0],
-                lastPractice: new Date()
+                lastPractice: Date.now()
             })
             this.saveToLocalStorage()
         },

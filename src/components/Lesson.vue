@@ -14,7 +14,7 @@ const lesson = piniaLessonsStore.getLessonById(id)
         <p class="name">{{ lesson.name }}</p>
         <p class="stats">{{ lesson.stats.join(' / ') }}</p>
         <p class="stars">{{ '★'.repeat(lesson.stars) }}</p>
-        <p class="last">zuletzt {{ lesson.lastPractice.toLocaleDateString('de-DE') }}</p>
+        <p class="last">zuletzt {{ new Date(lesson.lastPractice).toLocaleDateString('de-DE') }}</p>
     </div>
 </template>
 

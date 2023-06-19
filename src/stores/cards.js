@@ -53,7 +53,7 @@ export const useCardsStore = defineStore('cards', {
             for (let info of cardInfos) {
                 let cardside = this.cards.find(c => c.id === info.id)[info.side]
 
-                cardside.lastPractice = new Date()
+                cardside.lastPractice = Date.now()
                 if (info.correct) {
                     cardside.level = Math.max(Math.min(cardside.level + 1, MAX_LEVEL), 0)
                     cardside.stats[0] += 1
