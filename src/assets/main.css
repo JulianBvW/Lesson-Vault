@@ -1,1 +1,42 @@
 @import './base.css';
+
+main {
+    padding: 1rem;
+    padding-top: 2rem;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.island {
+    background-color: var(--color-background-island);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}
+
+.switch-enter-active,
+.switch-leave-active {
+  transition: all 0.1s ease;
+}
+
+.switch-enter-from {
+    transform: translateX(20%);
+    opacity: 0;
+}
+
+.switch-leave-to {
+    transform: translateX(-20%);
+    opacity: 0;
+}

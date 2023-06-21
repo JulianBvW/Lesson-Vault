@@ -40,19 +40,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.island {
-    background-color: var(--color-background-island);
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    margin-top: 1rem;
-    border-radius: 1rem;
-}
