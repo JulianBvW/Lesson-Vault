@@ -42,7 +42,7 @@ const router = createRouter({
             name: 'settings',
             component: () => import('../views/SettingsView.vue'),
             meta: { transition: 'switch' }
-        }
+        },
     ]
 })
 
