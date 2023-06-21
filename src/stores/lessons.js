@@ -43,6 +43,7 @@ export const useLessonsStore = defineStore('lessons', {
             return (id) => state.lessons.find(lesson => lesson.id === id);
         },
         getLatestLessonId: (state) => {
+            if (state.lessons.length === 0) { return -1 }
             return state.lessons[state.lessons.length-1].id
         }
     }

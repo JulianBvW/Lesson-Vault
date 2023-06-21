@@ -1,20 +1,28 @@
 <script setup>
 import { useLessonsStore } from '@/stores/lessons.js'
+import { Icon } from '@iconify/vue';
+import iconPlus from '@iconify-icons/mdi/plus';
 
 const props = defineProps(['id'])
 const id = props.id
 
 const piniaLessonsStore = useLessonsStore()
-const lesson = piniaLessonsStore.getLessonById(id)
+const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
 </script>
 
 <template>
-    <div class="container" @click="$router.push('/lesson/' + id)">
+    <div v-if="id >= 0" class="container" @click="$router.push('/lesson/' + id)">
         <div class="circle"></div>
         <p class="name">{{ lesson.name }}</p>
         <p class="stats">{{ lesson.stats.join(' / ') }}</p>
         <p class="stars"><span style="color: var(--color-text-soft);">{{ '☆'.repeat(3 - lesson.stars) }}</span>{{ '★'.repeat(lesson.stars) }}</p>
         <p class="last">zuletzt {{ new Date(lesson.lastPractice).toLocaleDateString('de-DE') }}</p>
+    </div>
+    <div v-else class="container-new-lesson">
+        <div class="circle">
+            <Icon :icon="iconPlus" color="#007AFF" :height="45" />
+        </div>
+        <p>Neue Lektion...</p>
     </div>
 </template>
 
@@ -28,6 +36,20 @@ const lesson = piniaLessonsStore.getLessonById(id)
     align-content: center;
 }
 
+.container-new-lesson {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 1rem;
+}
+
+.container-new-lesson p {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    margin-left: 1.85rem;
+    color: var(--color-text-soft);
+}
+
 .circle {
     grid-column: 1/2;
     grid-row: 1/3;
@@ -37,6 +59,7 @@ const lesson = piniaLessonsStore.getLessonById(id)
     border-radius: 100%;
     border: 4px solid var(--color-action);
     z-index: 2;
+    padding: 0.4rem 0 0 0.4rem;
 }
 
 .name {

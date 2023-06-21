@@ -27,6 +27,7 @@ function addLesson() {
             <div class="island" style="position: relative;">
                 <div class="connection-bar"></div>
                 <Lesson v-for="lesson in lessons" :id="lesson.id" />
+                <Lesson id="-1"/>
             </div>
             <input v-model="newLessonName" type="text" v-on:keyup.enter="addLesson()">
             <button @click="addLesson()">Lektion hinzufügen</button>
