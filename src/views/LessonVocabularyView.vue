@@ -3,6 +3,8 @@ import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLessonsStore } from '@/stores/lessons.js'
 import { useCardsStore } from '@/stores/cards.js'
+import { Icon } from '@iconify/vue';
+import iconCog from '@iconify-icons/mdi/cog';
 
 const lessonId = parseInt(useRoute().params.id)
 
@@ -58,16 +60,18 @@ function addVocabulary() {
 <template>
     <main>
         <div class="container">
-            <h1 @click="$router.push('/lessons')">Vokabeln</h1>
-            <p>aus {{ lesson.name }}</p>
+            <div class="header">
+                <h1>{{ lesson.name }}</h1>
+                <Icon class="header-icon" @click="$router.push('/settings')" :icon="iconCog" color="var(--color-action)" :height="25" />
+            </div>
 
             <button @click="switchSide()">{{ side }}</button>
 
             <div v-for="(cards, level) in cardsPerLevel">
                 <div style="width: 100%; background-color: aqua;">Ebene {{ level + 1 }} ({{ cards.length }})</div>
                 <p v-for="card in cards">
-                    <div v-if="side === 'W2T'">{{ card.word }} | {{ card.translation }}</div>
-                    <div v-if="side === 'T2W'">{{ card.translation }} | {{ card.word }}</div>
+                <div v-if="side === 'W2T'">{{ card.word }} | {{ card.translation }}</div>
+                <div v-if="side === 'T2W'">{{ card.translation }} | {{ card.word }}</div>
                 </p>
             </div>
 

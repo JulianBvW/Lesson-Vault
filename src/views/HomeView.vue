@@ -16,7 +16,7 @@ const latestLessonId = computed(() => {
     <main>
         <div class="header">
             <h1>Home</h1>
-            <Icon class="icon" @click="$router.push('/settings')" :icon="iconCog" color="var(--color-action)" :height="25" />
+            <Icon class="header-icon" @click="$router.push('/settings')" :icon="iconCog" color="var(--color-action)" :height="25" />
         </div>
         <div class="island"> <!-- TODO make it a component -->
             <p style="color: var(--color-text-soft); margin: -0.3rem 0 0.1rem 0; font-size: 0.9rem; font-weight: bold;">NEUSTE LEKTION</p>
@@ -27,13 +27,4 @@ const latestLessonId = computed(() => {
 </template>
 
 <style scoped>
-.header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: -1rem;
-}
-
-.icon {
-    margin-top: 1.4rem;
-}
 </style>
