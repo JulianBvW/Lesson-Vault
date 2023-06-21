@@ -34,7 +34,7 @@ function focusSymbol() {
         <div class="container">
             <h1>Neue Lektion</h1>
             <h2>Name</h2>
-            <input class="island" v-model="newLessonName" v-on:keyup.enter="focusSymbol()" type="text" ref="nameinput" placeholder="Lektion 1" />
+            <input class="island" v-model="newLessonName" v-on:keyup.enter="focusSymbol()" type="text" ref="nameinput" placeholder="Lektion 1" autofocus  />
             <h2>Symbol</h2>
             <input class="island" v-model="newLessonIcon" v-on:keyup.enter="addLesson()" type="text" ref="symbolinput" placeholder="1" />
             <div class="button-center">

@@ -29,7 +29,7 @@ onMounted(() => {
 <template>
     <main>
         <h1>Neue Vokabel</h1>
-        <input class="island" v-model="newVocabularyWord" type="text" placeholder="Wort" ref="newVocabularyWordBox">
+        <input class="island" v-model="newVocabularyWord" type="text" placeholder="Wort" ref="newVocabularyWordBox" autofocus >
         <hr />
         <input class="island" v-model="newVocabularyTranslation" type="text" placeholder="Übersetzung" v-on:keyup.enter="addVocabulary()">
         <hr />
