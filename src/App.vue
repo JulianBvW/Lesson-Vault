@@ -12,7 +12,12 @@ piniaCardsStore.loadFromLocalStorage()
 </script>
 
 <template>
-    <RouterView style="margin-bottom: calc( var(--footer-height) + 1rem );" />
+    <RouterView v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+            <component :is="Component" />
+        </transition>
+    </RouterView>
+    <div class="phantom"></div>
     <NavBar />
 </template>
 
@@ -21,8 +26,28 @@ main {
     padding: 1rem;
     padding-top: 2rem;
 }
+
 h1 {
     font-weight: bold;
     font-size: 2.5rem;
+}
+
+.phantom {
+    height: calc(var(--footer-height) + 1rem);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.1s ease;
+}
+
+.fade-enter-from {
+    transform: translateX(20%);
+    opacity: 0;
+}
+
+.fade-leave-to {
+    transform: translateX(-20%);
+    opacity: 0;
 }
 </style>
