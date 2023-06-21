@@ -23,6 +23,7 @@ function addVocabulary() {
 
 onMounted(() => {
     newVocabularyWordBox.value.focus()
+    newVocabularyWordBox.value.click()
 })
 </script>
 

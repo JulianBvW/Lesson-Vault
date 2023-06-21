@@ -22,6 +22,7 @@ const nameinput = ref(null)
 const symbolinput = ref(null)
 onMounted(() => {
     nameinput.value.focus()
+    nameinput.value.click()
 })
 
 function focusSymbol() {
