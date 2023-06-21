@@ -56,7 +56,7 @@ const cardsPerLevel = computed(() => {
 
             <div v-for="(cards, level) in cardsPerLevel">
                 <div v-if="cards.length > 0">
-                    <h2>Ebene {{ level + 1 }} ({{ cards.length }})</h2>
+                    <h2>Ebene {{ level + 1 }} <span v-if="level === 5">👑</span> ({{ cards.length }})</h2>
                     <div class="island">
                         <p v-for="card in cards">
                         <div v-if="side === 'W2T'">{{ card.word }} | {{ card.translation }}</div>
