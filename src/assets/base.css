@@ -12,7 +12,7 @@
 
   --color-border: #B2B2B2;
 
-  --footer-height: 5rem;
+  --footer-height: 7rem;
 }
 
 /* @media (prefers-color-scheme: dark) { // TODO
@@ -39,4 +39,13 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

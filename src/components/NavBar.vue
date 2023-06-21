@@ -9,7 +9,7 @@ import iconLesson from '@iconify-icons/mdi/card-text';
 import iconLessonInactive from '@iconify-icons/mdi/card-text-outline';
 import iconGroup from '@iconify-icons/mdi/format-list-group';
 
-const svgHeight = 36
+const svgHeight = 32
 
 const page = computed(() => {
     const route = useRoute().path
@@ -21,7 +21,7 @@ const page = computed(() => {
 </script>
 
 <template>
-    <footer> <!-- TODO make more beautiful -->
+    <footer class="unselectable"> <!-- TODO make more beautiful -->
         <div v-if="page === 'groups'" @click="$router.push('/groups/')" class="navbar-icon active">
             <Icon :icon="iconGroup" color="#007AFF" :height="svgHeight" />
             <p>Gruppen</p>
@@ -62,7 +62,7 @@ footer {
     width: 100vw;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .navbar-icon {
@@ -71,10 +71,11 @@ footer {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-top: 1rem;
 }
 
 .navbar-icon p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-top: -0.1rem;
     color: var(--color-action-inactive);
     font-weight: 500;
