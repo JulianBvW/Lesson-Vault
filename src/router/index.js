@@ -33,6 +33,12 @@ const router = createRouter({
             meta: { transition: 'switch' }
         },
         {
+            path: '/lesson/:id/settings',
+            name: 'lesson-settings',
+            component: () => import('../views/LessonSettingsView.vue'),
+            meta: { transition: 'switch' }
+        },
+        {
             path: '/groups',
             name: 'groups',
             component: () => import('../views/GroupView.vue')
