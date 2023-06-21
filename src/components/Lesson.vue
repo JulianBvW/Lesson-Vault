@@ -15,7 +15,7 @@ const lesson = piniaLessonsStore.getLessonById(id)
         <p class="stats">{{ lesson.stats.join(' / ') }}</p>
         <!-- TODO stars as svg's -->
         <p class="stars" v-if="lesson.stars > 0">{{ '★'.repeat(lesson.stars) }}</p>
-        <p class="stars" v-else style="color: var(--color-text-soft);">★</p>
+        <p class="stars" v-else style="color: var(--color-text-soft);">☆</p>
         <p class="last">zuletzt {{ new Date(lesson.lastPractice).toLocaleDateString('de-DE') }}</p>
     </div>
 </template>
