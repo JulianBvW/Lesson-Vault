@@ -1,5 +1,5 @@
 <script setup>
-import { ref, ononMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCardsStore } from '@/stores/cards.js'
 
