@@ -51,6 +51,7 @@ const lesson = piniaLessonsStore.getLessonById(id)
     justify-self: flex-end;
     font-size: 1.4rem;
     color: gold;
+    /* color: #FF4800; */
     margin-top: 0.2rem;
 }
 

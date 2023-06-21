@@ -41,6 +41,9 @@ export const useLessonsStore = defineStore('lessons', {
     getters: {
         getLessonById: (state) => {
             return (id) => state.lessons.find(lesson => lesson.id === id);
+        },
+        getLatestLessonId: (state) => {
+            return state.lessons[state.lessons.length-1].id
         }
     }
 })
