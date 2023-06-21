@@ -49,3 +49,10 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
+
+.island {
+    background-color: var(--color-background-island);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}

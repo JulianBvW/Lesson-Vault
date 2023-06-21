@@ -24,7 +24,9 @@ function addLesson() {
     <main>
         <div class="container">
             <h1>Lektionen</h1>
-            <Lesson v-for="lesson in lessons" :id="lesson.id" />
+            <div class="island">
+                <Lesson v-for="lesson in lessons" :id="lesson.id" />
+            </div>
             <input v-model="newLessonName" type="text" v-on:keyup.enter="addLesson()">
             <button @click="addLesson()">Lektion hinzufügen</button>
         </div>

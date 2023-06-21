@@ -31,11 +31,11 @@ const lesson = piniaLessonsStore.getLessonById(id)
 .circle {
     grid-column: 1/2;
     grid-row: 1/3;
-    height: 4.5rem;
-    width: 4.5rem;
+    height: 4.2rem;
+    width: 4.2rem;
     background-color: var(--color-background-island);
     border-radius: 100%;
-    border: 5px solid var(--color-action);
+    border: 4px solid var(--color-action);
 }
 
 .name {
@@ -43,7 +43,6 @@ const lesson = piniaLessonsStore.getLessonById(id)
     grid-row: 1/2;
     font-size: 1.4rem;
     margin-left: 1rem;
-    margin-top: 0.2rem;
 }
 
 .stars {
@@ -62,7 +61,7 @@ const lesson = piniaLessonsStore.getLessonById(id)
     color: var(--color-text-soft);
     font-weight: bold;
     font-size: small;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
 }
 
 .last {
@@ -71,6 +70,6 @@ const lesson = piniaLessonsStore.getLessonById(id)
     justify-self: flex-end;
     color: var(--color-text-soft);
     font-size: small;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
 }
 </style>
