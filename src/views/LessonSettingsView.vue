@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onActivated } from 'vue'
+import { ref, ononMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCardsStore } from '@/stores/cards.js'
 
@@ -21,15 +21,16 @@ function addVocabulary() {
     }
 }
 
-onActivated(() => {
+onMounted(() => {
     newVocabularyWordBox.value.focus()
+    newVocabularyWordBox.value.click()
 })
 </script>
 
 <template>
     <main>
         <h1>Neue Vokabel</h1>
-        <input class="island" v-model="newVocabularyWord" type="text" placeholder="Wort" ref="newVocabularyWordBox" />
+        <input class="island" v-model="newVocabularyWord" type="text" placeholder="Wort" ref="newVocabularyWordBox" v-on:keyup.enter="addVocabulary()" autofocus />
         <hr />
         <input class="island" v-model="newVocabularyTranslation" type="text" placeholder="Übersetzung" v-on:keyup.enter="addVocabulary()">
         <hr />

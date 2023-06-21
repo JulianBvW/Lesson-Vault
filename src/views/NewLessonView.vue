@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onActivated } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router';
 import { useLessonsStore } from '@/stores/lessons.js'
 const router = useRouter()
@@ -20,8 +20,9 @@ function addLesson() {
 
 const nameinput = ref(null)
 const symbolinput = ref(null)
-onActivated(() => {
+onMounted(() => {
     nameinput.value.focus()
+    nameinput.value.click()
 })
 
 function focusSymbol() {
