@@ -21,7 +21,7 @@ const page = computed(() => {
 </script>
 
 <template>
-    <footer class="unselectable"> <!-- TODO make more beautiful -->
+    <footer class="unselectable"> <!-- TODO make more beautiful (var() is available in <Icon>) -->
         <div v-if="page === 'groups'" @click="$router.push('/groups/')" class="navbar-icon active">
             <Icon :icon="iconGroup" color="#007AFF" :height="svgHeight" />
             <p>Gruppen</p>

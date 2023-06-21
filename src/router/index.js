@@ -36,6 +36,12 @@ const router = createRouter({
             path: '/groups',
             name: 'groups',
             component: () => import('../views/GroupView.vue')
+        },
+        {
+            path: '/settings',
+            name: 'settings',
+            component: () => import('../views/SettingsView.vue'),
+            meta: { transition: 'switch' }
         }
     ]
 })
