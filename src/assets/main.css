@@ -24,6 +24,7 @@ h1 {
     padding: 0.5rem 1rem 0.5rem 1rem;
     margin-top: 1rem;
     border-radius: 1rem;
+    /* box-shadow: 0.2rem 0.2rem 5px var(--color-text-soft); */ /*Good idea?*/
 }
 
 .switch-enter-active,
