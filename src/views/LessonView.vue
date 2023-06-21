@@ -24,7 +24,8 @@ function addLesson() {
     <main>
         <div class="container">
             <h1>Lektionen</h1>
-            <div class="island">
+            <div class="island" style="position: relative;">
+                <div class="connection-bar"></div>
                 <Lesson v-for="lesson in lessons" :id="lesson.id" />
             </div>
             <input v-model="newLessonName" type="text" v-on:keyup.enter="addLesson()">
@@ -44,5 +45,14 @@ function addLesson() {
 main {
     display: flex;
     justify-content: center;
+}
+
+.connection-bar {
+    position: absolute;
+    width: 4px;
+    background-color: var(--color-action);
+    height: calc( 100% - 5rem );
+    margin-top: 1rem;
+    margin-left: 1.97em;
 }
 </style>

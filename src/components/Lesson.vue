@@ -36,6 +36,7 @@ const lesson = piniaLessonsStore.getLessonById(id)
     background-color: var(--color-background-island);
     border-radius: 100%;
     border: 4px solid var(--color-action);
+    z-index: 2;
 }
 
 .name {
