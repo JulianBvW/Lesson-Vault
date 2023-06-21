@@ -12,13 +12,15 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
 
 <template>
     <div v-if="id >= 0" class="container" @click="$router.push('/lesson/' + id)">
-        <div class="circle"></div>
+        <div class="circle">
+            <p>{{ lesson.icon.value }}</p>
+        </div>
         <p class="name">{{ lesson.name }}</p>
         <p class="stats">{{ lesson.stats.join(' / ') }}</p>
         <p class="stars"><span style="color: var(--color-text-soft);">{{ '☆'.repeat(3 - lesson.stars) }}</span>{{ '★'.repeat(lesson.stars) }}</p>
         <p class="last">zuletzt {{ new Date(lesson.lastPractice).toLocaleDateString('de-DE') }}</p>
     </div>
-    <div v-else class="container-new-lesson">
+    <div v-else class="container-new-lesson" @click="$router.push('/lessons/new')">
         <div class="circle">
             <Icon :icon="iconPlus" color="#007AFF" :height="45" />
         </div>
@@ -60,6 +62,13 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
     border: 4px solid var(--color-action);
     z-index: 2;
     padding: 0.4rem 0 0 0.4rem;
+}
+
+.circle p {
+    color: var(--color-action);
+    font-weight: bold;
+    font-size: 2rem;
+    margin: -0.35rem 0 0 0.85rem;
 }
 
 .name {

@@ -8,7 +8,10 @@ export const useLessonsStore = defineStore('lessons', {
         lessonTemplate: { // TODO calculate these values
             id: 0,
             name: '',
-            icon: '',
+            icon: {
+                type: 'string', // string or link to <Icon>
+                value: ''
+            },
             stars: 0,
             stats: [0, 0, 0], // [new, intermediate, finished]
             lastPractice: null
@@ -17,14 +20,18 @@ export const useLessonsStore = defineStore('lessons', {
     actions: {
         addLesson(name, icon) {
             this.lessons.push({
-                id: this.nextId++,
+                id: this.nextId,
                 name: name,
-                icon: icon,
+                icon: {
+                    type: 'string',
+                    value: icon
+                },
                 stars: 0,
                 stats: [0, 0, 0],
                 lastPractice: Date.now()
             })
             this.saveToLocalStorage()
+            return this.nextId++
         },
 
         saveToLocalStorage() {

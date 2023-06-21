@@ -11,6 +11,12 @@ h1 {
     margin-bottom: 2rem;
 }
 
+h2 {
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-bottom: -1rem;
+}
+
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -24,8 +30,22 @@ h1 {
     background-color: var(--color-background-island);
     padding: 0.5rem 1rem 0.5rem 1rem;
     margin-top: 1rem;
+    margin-bottom: 2rem;
     border-radius: 1rem;
     /* box-shadow: 0.2rem 0.2rem 5px var(--color-text-soft); */ /*Good idea?*/
+}
+
+.button-big {
+    background-color: var(--color-action);
+    color: var(--color-background-island);
+    height: 2.6rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 1rem;
+}
+
+.button-big:active {
+    background-color: var(--color-action-click);
 }
 
 .switch-enter-active,

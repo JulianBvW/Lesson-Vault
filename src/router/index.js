@@ -15,6 +15,12 @@ const router = createRouter({
             component: () => import('../views/LessonView.vue')
         },
         {
+            path: '/lessons/new',
+            name: 'new-lesson',
+            component: () => import('../views/NewLessonView.vue'),
+            meta: { transition: 'switch' }
+        },
+        {
             path: '/lesson/:id',
             name: 'vocabulary',
             component: () => import('../views/LessonVocabularyView.vue'),
