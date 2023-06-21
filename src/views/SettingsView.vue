@@ -9,8 +9,6 @@ const router = useRouter()
 const piniaLessonsStore = useLessonsStore()
 const piniaCardsStore = useCardsStore()
 
-const stateFile = ref('null')
-
 const resetStorageText = ref('Daten zurücksetzen')
 
 function resetStorage() {
@@ -37,7 +35,7 @@ function saveStateLocally() {
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = 'file.txt'
+    link.download = 'lesson-vault-save.txt'
 
     document.body.appendChild(link)
     link.click();
@@ -82,7 +80,7 @@ onMounted(() => {
             <hr />
             <!-- <button class="island-button action" @click="">Daten wiederherstellen</button> -->
             <label class="custom-file-upload">
-                <input type="file" @change="readStateLocally" ref="stateFile" />
+                <input type="file" @change="readStateLocally" />
                 <p class="island-button action" style="padding-top: 0.5rem; text-align: center;">Daten wiederherstellen</p>
             </label>
         </div>
