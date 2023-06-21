@@ -42,6 +42,7 @@ function nextCard(correct) {
 
 function commitToStore() {
     piniaCardsStore.updateAfterTraining(cardsToTrain.value)
+    piniaLessonsStore.updateAfterTraining(lessonId)
 }
 
 </script>

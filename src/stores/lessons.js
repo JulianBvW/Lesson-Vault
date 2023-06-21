@@ -33,6 +33,12 @@ export const useLessonsStore = defineStore('lessons', {
             this.saveToLocalStorage()
             return this.nextId++
         },
+        updateAfterTraining(id) {
+            let lesson = this.lessons.find(l => l.id === id)
+            lesson.lastPractice = Date.now()
+            // TODO everything else
+            this.saveToLocalStorage()
+        },
 
         saveToLocalStorage() {
             localStorage.setItem('lessons', JSON.stringify(this.lessons))
