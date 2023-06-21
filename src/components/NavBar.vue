@@ -63,6 +63,7 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    z-index: 99;
 }
 
 .navbar-icon {
