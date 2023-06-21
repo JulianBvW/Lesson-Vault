@@ -49,17 +49,23 @@ function commitToStore() {
 <template>
     <main>
         <div class="container">
-            <div v-if="currentCard < cardsToTrain.length">
-                {{ cardsToTrain[currentCard].front }}
-                <button v-if="!showSolution" @click="showSolution = !showSolution">?</button>
-                <button v-if="showSolution" @click="nextCard(false)">Falsch</button>
-                <button v-if="showSolution" @click="nextCard(true)">Korrekt</button>
+            <h1>Trainieren</h1>
+            <div v-if="currentCard < cardsToTrain.length" class="island training-card">
+                <p>{{ cardsToTrain[currentCard].front }}</p>
+                <button class="show-solution" v-if="!showSolution" @click="showSolution = !showSolution">?</button>
+                <p v-if="showSolution">{{ cardsToTrain[currentCard].back }}</p>
+                <div class="correct-buttons">
+                    <button style="background-color: rgb(201, 74, 74);" v-if="showSolution"
+                        @click="nextCard(false)">Falsch</button>
+                    <button style="background-color: rgb(82, 184, 82);" v-if="showSolution"
+                        @click="nextCard(true)">Richtig</button>
+                </div>
             </div>
-            {{ cardsToTrain }}
-            <div v-if="currentCard >= cardsToTrain.length">
-                Korrekt: {{ cardsToTrain.filter(c => c.correct).length }} / {{ cardsToTrain.length }}
-                <button @click="commitToStore() ; $router.push('/lesson/' + lesson.id)">Fertig</button>
+            <div v-if="currentCard >= cardsToTrain.length" class="island summary">
+                <p>Korrekt:</p>
+                <p style="font-size: 3rem;">{{ cardsToTrain.filter(c => c.correct).length }} / {{ cardsToTrain.length }}</p>
             </div>
+            <button v-if="currentCard >= cardsToTrain.length" class="button-big" style="width: 100%;" @click="commitToStore(); $router.push('/lesson/' + lesson.id)">Fertig</button>
         </div>
     </main>
 </template>
@@ -69,5 +75,55 @@ function commitToStore() {
     display: flex;
     flex-direction: column;
     max-width: 50rem;
+}
+
+.training-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.4rem;
+    height: 60vh;
+}
+
+.training-card p {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.show-solution {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 1rem;
+    color: var(--color-text-soft);
+    font-weight: bolder;
+    font-size: 10rem;
+    background-color: var(--color-background-soft);
+}
+
+.correct-buttons {
+    display: flex;
+    width: 100%;
+    margin-top: auto;
+}
+
+.correct-buttons button {
+    width: 100%;
+    height: 8rem;
+    margin: 1rem;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.4rem;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.4rem;
+    height: 60vh;
+    padding-top: 3rem;
 }
 </style>
