@@ -62,7 +62,7 @@ function addVocabulary() {
         <div class="container">
             <div class="header">
                 <h1>{{ lesson.name }}</h1>
-                <Icon class="header-icon" @click="$router.push('/settings')" :icon="iconCog" color="var(--color-action)" :height="25" />
+                <Icon class="header-icon" @click="$router.push('/lesson/' + lessonId + '/settings')" :icon="iconCog" color="var(--color-action)" :height="25" />
             </div>
 
             <button @click="switchSide()">{{ side }}</button>
