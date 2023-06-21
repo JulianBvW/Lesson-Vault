@@ -44,6 +44,11 @@ export const useLessonsStore = defineStore('lessons', {
             if (lessons) { this.lessons = lessons }
             if (nextId) { this.nextId = nextId }
         },
+        loadSaveString(saveString) {
+            let save = JSON.parse(saveString)
+            this.lessons = save['lessons']
+            this.nextId = save['nextId']
+        }
     },
     getters: {
         getLessonById: (state) => {
@@ -52,6 +57,12 @@ export const useLessonsStore = defineStore('lessons', {
         getLatestLessonId: (state) => {
             if (state.lessons.length === 0) { return -1 }
             return state.lessons[state.lessons.length-1].id
+        },
+        getSaveString: (state) => {
+            return JSON.stringify({
+                'lessons': state.lessons,
+                'nextId': state.nextId
+            })
         }
     }
 })

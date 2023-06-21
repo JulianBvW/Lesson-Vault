@@ -76,10 +76,21 @@ export const useCardsStore = defineStore('cards', {
             if (cards) { this.cards = cards }
             if (nextId) { this.nextId = nextId }
         },
+        loadSaveString(saveString) {
+            let save = JSON.parse(saveString)
+            this.cards = save['cards']
+            this.nextId = save['nextId']
+        }
     },
     getters: {
         getCardsByLessonId: (state) => {
             return (lessonId) => state.cards.filter(card => card.lessonId === lessonId);
+        },
+        getSaveString: (state) => {
+            return JSON.stringify({
+                'cards': state.cards,
+                'nextId': state.nextId
+            })
         }
     }
 })

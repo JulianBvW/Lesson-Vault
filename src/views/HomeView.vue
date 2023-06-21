@@ -10,10 +10,6 @@ const piniaLessonsStore = useLessonsStore()
 const latestLessonId = computed(() => {
     return piniaLessonsStore.getLatestLessonId
 })
-
-function resetStorage() {
-    localStorage.clear()
-}
 </script>
 
 <template>
@@ -27,7 +23,6 @@ function resetStorage() {
             <hr style="margin: 0 -1rem 0 -1rem; border: 1px solid var(--color-background);">
             <Lesson :id="latestLessonId" />
         </div>
-        <button @click="resetStorage">Reset localStorage</button>
     </main>
 </template>
 
