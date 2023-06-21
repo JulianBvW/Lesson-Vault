@@ -13,7 +13,7 @@ piniaCardsStore.loadFromLocalStorage()
 
 <template>
     <RouterView v-slot="{ Component }">
-        <transition name="switch" mode="out-in">
+        <transition :name="$route.meta.transition || 'none'" mode="out-in">
             <component :is="Component" />
         </transition>
     </RouterView>

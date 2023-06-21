@@ -17,12 +17,14 @@ const router = createRouter({
         {
             path: '/lesson/:id',
             name: 'vocabulary',
-            component: () => import('../views/LessonVocabularyView.vue')
+            component: () => import('../views/LessonVocabularyView.vue'),
+            meta: { transition: 'switch' }
         },
         {
             path: '/lesson/:id/train',
             name: 'train',
-            component: () => import('../views/LessonTrainView.vue')
+            component: () => import('../views/LessonTrainView.vue'),
+            meta: { transition: 'switch' }
         },
         {
             path: '/groups',
