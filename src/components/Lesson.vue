@@ -32,7 +32,7 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
 .container {
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: 5rem 1.5fr 1fr;
+    grid-template-columns: 5rem 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-content: left;
     align-content: center;
@@ -77,14 +77,14 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
 }
 
 .name {
-    grid-column: 2/3;
+    grid-column: 2/4;
     grid-row: 1/2;
     font-size: 1.4rem;
     margin-left: 1rem;
 }
 
 .stars {
-    grid-column: 3/4;
+    grid-column: 4/5;
     grid-row: 1/2;
     justify-self: flex-end;
     font-size: 1.4rem;
@@ -104,7 +104,7 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
 }
 
 .last {
-    grid-column: 3/4;
+    grid-column: 3/5;
     grid-row: 2/3;
     justify-self: flex-end;
     color: var(--color-text-soft);
