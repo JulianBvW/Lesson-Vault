@@ -21,7 +21,7 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
         <p class="last">zuletzt {{ new Date(lesson.lastPractice).toLocaleDateString('de-DE') }}</p>
     </div>
     <div v-else class="container-new-lesson" @click="$router.push('/lessons/new')">
-        <div class="circle">
+        <div class="circle new-lesson-circle">
             <Icon :icon="iconPlus" color="#007AFF" :height="45" />
         </div>
         <p>Neue Lektion...</p>
@@ -52,6 +52,12 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
     color: var(--color-text-soft);
 }
 
+.new-lesson-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .circle {
     grid-column: 1/2;
     grid-row: 1/3;
@@ -61,14 +67,13 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
     border-radius: 100%;
     border: 4px solid var(--color-action);
     z-index: 2;
-    padding: 0.4rem 0 0 0.4rem;
 }
 
 .circle p {
     color: var(--color-action);
     font-weight: bold;
     font-size: 2rem;
-    margin: -0.35rem 0 0 0.85rem;
+    text-align: center;
 }
 
 .name {
