@@ -6,6 +6,7 @@ import { useCardsStore } from '@/stores/cards.js'
 import { onMounted } from 'vue'
 
 const lessonId = parseInt(useRoute().params.id)
+const settings = useRoute().query
 
 const piniaLessonsStore = useLessonsStore()
 const lesson = piniaLessonsStore.getLessonById(lessonId)
@@ -17,16 +18,18 @@ const cardsToTrain = ref([])
 
 onMounted(() => {
     for (let card of cards.value) {
-        let side = (Math.random() > 0.5) ? 'W2T' : 'T2W'
+        let side = (settings.side === 'random') ? ((Math.random() > 0.5) ? 'W2T' : 'T2W') : settings.side
 
-        cardsToTrain.value.push({
-            id: card.id,
-            side: side,
-            front: (side === 'W2T') ? card.word : card.translation,
-            back: (side === 'W2T') ? card.translation : card.word,
-            info: card.info,
-            correct: null
-        })
+        if (settings.levels.includes(card[side].level.toString())) {
+            cardsToTrain.value.push({
+                id: card.id,
+                side: side,
+                front: (side === 'W2T') ? card.word : card.translation,
+                back: (side === 'W2T') ? card.translation : card.word,
+                info: card.info,
+                correct: null
+            })
+        }
     }
     return cardsToTrain.value.sort(() => Math.random() - 0.5);
 })
@@ -66,7 +69,8 @@ function commitToStore() {
                 <p>Korrekt:</p>
                 <p style="font-size: 3rem;">{{ cardsToTrain.filter(c => c.correct).length }} / {{ cardsToTrain.length }}</p>
             </div>
-            <button v-if="currentCard >= cardsToTrain.length" class="button-big" style="width: 100%;" @click="commitToStore(); $router.push('/lesson/' + lesson.id)">Fertig</button>
+            <button v-if="currentCard >= cardsToTrain.length" class="button-big" style="width: 100%;"
+                @click="commitToStore(); $router.push('/lesson/' + lesson.id)">Fertig</button>
         </div>
     </main>
 </template>

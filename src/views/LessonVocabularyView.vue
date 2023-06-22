@@ -66,7 +66,8 @@ const cardsPerLevel = computed(() => {
                 </div>
             </div>
 
-            <button class="button-big" @click="$router.push('/lesson/' + lesson.id + '/train')">Trainieren</button>
+            <button class="button-big" @click="$router.push({ name: 'train', query: { side: 'random', levels: '012345' }, params: { id: lesson.id } })">Trainieren</button>
+            <button class="button-big" @click="$router.push({ name: 'train', query: { side: side, levels: '01234' }, params: { id: lesson.id } })">Trainiere untere Ebenen</button>
         </div>
     </main>
 </template>
