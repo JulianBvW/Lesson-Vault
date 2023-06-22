@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import { useLessonsStore } from '@/stores/lessons.js'
 import { Icon } from '@iconify/vue';
 import iconPlus from '@iconify-icons/mdi/plus';
@@ -8,12 +9,18 @@ const id = props.id
 
 const piniaLessonsStore = useLessonsStore()
 const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
+
+const fontSizes = ['2', '2', '1.9', '1.6', '1.3', '1.1']
+const fontSize = computed(() => {
+    return fontSizes[lesson.icon.value.length]
+})
+
 </script>
 
 <template>
     <div v-if="id >= 0" class="container" @click="$router.push('/lesson/' + id)">
         <div class="circle">
-            <p>{{ lesson.icon.value }}</p>
+            <p :style="'font-size: ' + fontSize + 'rem;'">{{ lesson.icon.value }}</p>
         </div>
         <p class="name">{{ lesson.name }}</p>
         <p class="stats">{{ lesson.stats.join(' / ') }}</p>
@@ -67,13 +74,14 @@ const lesson = (id >= 0) ? piniaLessonsStore.getLessonById(id) : null
     border-radius: 100%;
     border: 4px solid var(--color-action);
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .circle p {
     color: var(--color-action);
     font-weight: bold;
-    font-size: 2rem;
-    text-align: center;
 }
 
 .name {
