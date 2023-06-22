@@ -92,6 +92,7 @@ export const useLessonsStore = defineStore('lessons', {
             let save = JSON.parse(saveString)
             this.lessons = save['lessons']
             this.nextId = save['nextId']
+            this.saveToLocalStorage()
         }
     },
     getters: {

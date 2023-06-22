@@ -87,6 +87,7 @@ export const useCardsStore = defineStore('cards', {
             let save = JSON.parse(saveString)
             this.cards = save['cards']
             this.nextId = save['nextId']
+            this.saveToLocalStorage()
         }
     },
     getters: {
