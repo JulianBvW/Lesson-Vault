@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 
+import { useLessonsStore } from '@/stores/lessons.js'
+
 let MAX_LEVEL = 5 // [0, 1, 2, 3, 4, 5]
 
 export const useCardsStore = defineStore('cards', {
@@ -12,6 +14,8 @@ export const useCardsStore = defineStore('cards', {
             lessonId: 0,
             word: '',
             translation: '',
+            info: '',
+            tags: [],
             W2T: {
                 level: 0,
                 stats: [0, 0], // Got right (stats[0]) vs got wrong (stats[1])
@@ -34,6 +38,7 @@ export const useCardsStore = defineStore('cards', {
                 word: word,
                 translation: translation,
                 info: info,
+                tags: [],
                 W2T: {
                     level: 0,
                     stats: [0, 0],
@@ -47,6 +52,8 @@ export const useCardsStore = defineStore('cards', {
                     reachedTopLevel: false
                 }
             })
+            const piniaLessonsStore = useLessonsStore()
+            piniaLessonsStore.updateStats(lessonId)
             this.saveToLocalStorage()
         },
         updateAfterTraining(cardInfos) {
