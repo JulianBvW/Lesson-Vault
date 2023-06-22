@@ -24,7 +24,7 @@ export const useLessonsStore = defineStore('lessons', {
     actions: {
         addLesson(name, icon) {
             this.lessons.push({
-                id: this.nextId,
+                id: this.nextId++,
                 name: name,
                 icon: {
                     type: 'string',
@@ -35,7 +35,7 @@ export const useLessonsStore = defineStore('lessons', {
                 lastPractice: Date.now()
             })
             this.saveToLocalStorage()
-            return this.nextId++
+            return this.nextId - 1
         },
         updateAfterTraining(id) {
             let lesson = this.lessons.find(l => l.id === id)

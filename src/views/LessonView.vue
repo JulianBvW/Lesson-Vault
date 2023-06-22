@@ -8,16 +8,6 @@ import Lesson from '@/components/Lesson.vue'
 const piniaLessonsStore = useLessonsStore()
 const { lessons } = storeToRefs(piniaLessonsStore)
 
-const newLessonName = ref('')
-const newLessonIcon = ref('')
-
-function addLesson() {
-    if (newLessonName.value !== '') {
-        piniaLessonsStore.addLesson(newLessonName.value, newLessonIcon.value)
-        newLessonName.value = ''
-    }
-}
-
 </script>
 
 <template>
