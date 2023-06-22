@@ -56,7 +56,9 @@ function commitToStore() {
             <h1>Trainieren</h1>
             <div v-if="currentCard < cardsToTrain.length" class="island training-card">
                 <p>{{ cardsToTrain[currentCard].front }}</p>
-                <button class="show-solution" v-if="!showSolution" @click="showSolution = !showSolution">?</button>
+                <div class="show-solution" v-if="!showSolution" @click="showSolution = !showSolution">
+                    <p>?</p>
+                </div>
                 <p v-if="showSolution">{{ cardsToTrain[currentCard].back }}</p>
                 <div class="correct-buttons">
                     <button style="background-color: rgb(201, 74, 74);" v-if="showSolution"
@@ -68,9 +70,9 @@ function commitToStore() {
             <div v-if="currentCard >= cardsToTrain.length" class="island summary">
                 <p>Korrekt:</p>
                 <p style="font-size: 3rem;">{{ cardsToTrain.filter(c => c.correct).length }} / {{ cardsToTrain.length }}</p>
+                <button v-if="currentCard >= cardsToTrain.length" class="button-big" style="width: 100%; margin-top: auto;"
+                    @click="commitToStore(); $router.push('/lesson/' + lesson.id)">Fertig</button>
             </div>
-            <button v-if="currentCard >= cardsToTrain.length" class="button-big" style="width: 100%;"
-                @click="commitToStore(); $router.push('/lesson/' + lesson.id)">Fertig</button>
         </div>
     </main>
 </template>
@@ -100,10 +102,14 @@ function commitToStore() {
     height: 100%;
     border: none;
     border-radius: 1rem;
+    background-color: var(--color-background-soft);
+    text-align: center;
+}
+
+.show-solution p {
     color: var(--color-text-soft);
     font-weight: bolder;
     font-size: 10rem;
-    background-color: var(--color-background-soft);
 }
 
 .correct-buttons {
