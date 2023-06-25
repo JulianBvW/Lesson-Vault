@@ -16,7 +16,7 @@ const vocabularyInfo = ref('')
 const newVocabularyWordBox = ref(null)
 
 function updateVocabulary() {
-    if (newVocabularyWord.value !== '' && newVocabularyTranslation.value !== '') {
+    if (vocabularyWord.value !== '' && vocabularyTranslation.value !== '') {
         piniaCardsStore.updateCard(cardId, newVocabularyWord.value, newVocabularyTranslation.value, newVocabularyInfo.value)
         router.push('/lessons')
     }
