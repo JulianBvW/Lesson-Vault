@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useLessonsStore } from '@/stores/lessons.js'
 import { useCardsStore } from '@/stores/cards.js'
+import { RouterLink } from 'vue-router'
 import { Icon } from '@iconify/vue';
 import iconCog from '@iconify-icons/mdi/cog';
 
@@ -59,7 +60,7 @@ const cardsPerLevel = computed(() => {
                     <h2>Ebene {{ level + 1 }} <span v-if="level === 5">👑</span> ({{ cards.length }})</h2>
                     <div class="island">
                         <p v-for="card in cards">
-                        <div v-if="side === 'W2T'">{{ card.word }} | <span style="color: var(--color-text-soft)">{{ card.translation }}</span></div>
+                        <div v-if="side === 'W2T'"><RouterLink :to="'/card/' + card.id">{{ card.word }}</RouterLink> | <span style="color: var(--color-text-soft)">{{ card.translation }}</span></div>
                         <div v-if="side === 'T2W'">{{ card.translation }} | <span style="color: var(--color-text-soft)">{{ card.word }}</span></div>
                         </p>
                     </div>
