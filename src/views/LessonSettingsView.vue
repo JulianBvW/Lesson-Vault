@@ -18,6 +18,10 @@ function addVocabulary() {
         newVocabularyWord.value = ''
         newVocabularyTranslation.value = ''
         newVocabularyInfo.value = ''
+    } else if (newVocabularyWord.value === '') {
+        newVocabularyTranslation.value.focus()
+    } else {
+        newVocabularyWord.value.focus()
     }
 }
 
