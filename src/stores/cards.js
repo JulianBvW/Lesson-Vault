@@ -56,6 +56,12 @@ export const useCardsStore = defineStore('cards', {
             piniaLessonsStore.updateStats(lessonId)
             this.saveToLocalStorage()
         },
+        updateCard(cardId, word, translation, info) {
+            let card = this.cards.find(c => c.id === cardId)
+            card.word = word
+            card.translation = translation
+            card.info = info
+        },
         updateAfterTraining(cardInfos) {
             for (let info of cardInfos) {
                 let cardside = this.cards.find(c => c.id === info.id)[info.side]
@@ -91,8 +97,11 @@ export const useCardsStore = defineStore('cards', {
         }
     },
     getters: {
+        getCardById: (state) => {
+            return (cardId) => state.card.find(card => card.id === cardId)
+        },
         getCardsByLessonId: (state) => {
-            return (lessonId) => state.cards.filter(card => card.lessonId === lessonId);
+            return (lessonId) => state.cards.filter(card => card.lessonId === lessonId)
         },
         getSaveString: (state) => {
             return JSON.stringify({

@@ -39,6 +39,12 @@ const router = createRouter({
             meta: { transition: 'switch' }
         },
         {
+            path: '/card/:id',
+            name: 'card',
+            component: () => import('../views/CardView.vue'),
+            meta: { transition: 'switch' }
+        },
+        {
             path: '/groups',
             name: 'groups',
             component: () => import('../views/GroupView.vue')
