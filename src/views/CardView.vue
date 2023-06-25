@@ -23,6 +23,11 @@ function updateVocabulary() {
 }
 
 onMounted(() => {
+    console.log(router)
+    console.log(cardId)
+    console.log(piniaCardsStore)
+    console.log(card)
+    
     vocabularyWord.value = card.word
     vocabularyTranslation.value = card.translation
     vocabularyInfo.value = card.info
