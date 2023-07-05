@@ -61,6 +61,7 @@ export const useCardsStore = defineStore('cards', {
             card.word = word
             card.translation = translation
             card.info = info
+            this.saveToLocalStorage()
         },
         updateAfterTraining(cardInfos) {
             for (let info of cardInfos) {
@@ -98,7 +99,7 @@ export const useCardsStore = defineStore('cards', {
     },
     getters: {
         getCardById: (state) => {
-            return (cardId) => state.card.find(card => card.id === cardId)
+            return (cardId) => state.cards.find(card => card.id === cardId)
         },
         getCardsByLessonId: (state) => {
             return (lessonId) => state.cards.filter(card => card.lessonId === lessonId)

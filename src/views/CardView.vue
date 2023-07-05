@@ -13,21 +13,14 @@ const vocabularyWord = ref('')
 const vocabularyTranslation = ref('')
 const vocabularyInfo = ref('')
 
-const newVocabularyWordBox = ref(null)
-
 function updateVocabulary() {
     if (vocabularyWord.value !== '' && vocabularyTranslation.value !== '') {
-        piniaCardsStore.updateCard(cardId, newVocabularyWord.value, newVocabularyTranslation.value, newVocabularyInfo.value)
+        piniaCardsStore.updateCard(cardId, vocabularyWord.value, vocabularyTranslation.value, vocabularyInfo.value)
         router.push('/lessons')
     }
 }
 
 onMounted(() => {
-    console.log(router)
-    console.log(cardId)
-    console.log(piniaCardsStore)
-    console.log(card)
-    
     vocabularyWord.value = card.word
     vocabularyTranslation.value = card.translation
     vocabularyInfo.value = card.info
@@ -37,7 +30,7 @@ onMounted(() => {
 <template>
     <main>
         <h1>Vokabel bearbeiten</h1>
-        <input class="island" v-model="vocabularyWord" type="text" placeholder="Wort" ref="newVocabularyWordBox" v-on:keyup.enter="updateVocabulary()" autofocus />
+        <input class="island" v-model="vocabularyWord" type="text" placeholder="Wort" v-on:keyup.enter="updateVocabulary()" autofocus />
         <hr />
         <input class="island" v-model="vocabularyTranslation" type="text" placeholder="Übersetzung" v-on:keyup.enter="updateVocabulary()">
         <hr />

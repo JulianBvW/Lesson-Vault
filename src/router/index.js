@@ -1,5 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import LessonView from '../views/LessonView.vue'
+import NewLessonView from '../views/NewLessonView.vue'
+import LessonVocabularyView from '../views/LessonVocabularyView.vue'
+import LessonTrainView from '../views/LessonTrainView.vue'
+import LessonSettingsView from '../views/LessonSettingsView.vue'
+import CardView from '../views/CardView.vue'
+import GroupView from '../views/GroupView.vue'
+import SettingsView from '../views/SettingsView.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,47 +20,47 @@ const router = createRouter({
         {
             path: '/lessons',
             name: 'lessons',
-            component: () => import('../views/LessonView.vue')
+            component: LessonView
         },
         {
             path: '/lessons/new',
             name: 'new-lesson',
-            component: () => import('../views/NewLessonView.vue'),
+            component: NewLessonView,
             meta: { transition: 'switch' }
         },
         {
             path: '/lesson/:id',
             name: 'vocabulary',
-            component: () => import('../views/LessonVocabularyView.vue'),
+            component: LessonVocabularyView,
             meta: { transition: 'switch' }
         },
         {
             path: '/lesson/:id/train',
             name: 'train',
-            component: () => import('../views/LessonTrainView.vue'),
+            component: LessonTrainView,
             meta: { transition: 'switch' }
         },
         {
             path: '/lesson/:id/settings',
             name: 'lesson-settings',
-            component: () => import('../views/LessonSettingsView.vue'),
+            component: LessonSettingsView,
             meta: { transition: 'switch' }
         },
         {
             path: '/card/:id',
             name: 'card',
-            component: () => import('../views/CardView.vue'),
+            component: CardView,
             meta: { transition: 'switch' }
         },
         {
             path: '/groups',
             name: 'groups',
-            component: () => import('../views/GroupView.vue')
+            component: GroupView
         },
         {
             path: '/settings',
             name: 'settings',
-            component: () => import('../views/SettingsView.vue'),
+            component: SettingsView,
             meta: { transition: 'switch' }
         },
     ]
