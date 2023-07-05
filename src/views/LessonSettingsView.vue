@@ -11,6 +11,7 @@ const newVocabularyTranslation = ref('')
 const newVocabularyInfo = ref('')
 
 const newVocabularyWordBox = ref(null)
+const newVocabularyTranslationBox = ref(null)
 
 function addVocabulary() {
     if (newVocabularyWord.value !== '' && newVocabularyTranslation.value !== '') {
@@ -19,9 +20,9 @@ function addVocabulary() {
         newVocabularyTranslation.value = ''
         newVocabularyInfo.value = ''
     } else if (newVocabularyWord.value === '') {
-        newVocabularyTranslation.value.focus()
+        newVocabularyWordBox.value.focus()
     } else {
-        newVocabularyWord.value.focus()
+        newVocabularyTranslationBox.value.focus()
     }
 }
 
@@ -36,7 +37,7 @@ onMounted(() => {
         <h1>Neue Vokabel</h1>
         <input class="island" v-model="newVocabularyWord" type="text" placeholder="Wort" ref="newVocabularyWordBox" v-on:keyup.enter="addVocabulary()" autofocus />
         <hr />
-        <input class="island" v-model="newVocabularyTranslation" type="text" placeholder="Übersetzung" v-on:keyup.enter="addVocabulary()">
+        <input class="island" v-model="newVocabularyTranslation" type="text" placeholder="Übersetzung" ref="newVocabularyTranslationBox" v-on:keyup.enter="addVocabulary()">
         <hr />
         <input class="island" v-model="newVocabularyInfo" type="text" placeholder="Info" v-on:keyup.enter="addVocabulary()">
 
