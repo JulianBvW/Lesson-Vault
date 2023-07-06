@@ -113,7 +113,7 @@ export const useCardsStore = defineStore('cards', {
         searchCards: (state) => {
             return (search) => {
                 if (search === '') { return [] }
-                return state.cards.filter(card => card.word.includes(search) || card.translation.includes(search))
+                return state.cards.filter(card => card.word.toLowerCase().includes(search.toLowerCase()) || card.translation.toLowerCase().includes(search.toLowerCase()))
             }
         } 
     }
