@@ -60,8 +60,16 @@ const cardsPerLevel = computed(() => {
                     <h2>Ebene {{ level + 1 }} <span v-if="level === 5">👑</span> ({{ cards.length }})</h2>
                     <div class="island">
                         <p v-for="card in cards">
-                        <div v-if="side === 'W2T'"><RouterLink :to="'/card/' + card.id">{{ card.word }}</RouterLink> | <span style="color: var(--color-text-soft)">{{ card.translation }}</span></div>
-                        <div v-if="side === 'T2W'">{{ card.translation }} | <span style="color: var(--color-text-soft)">{{ card.word }}</span></div>
+                        <div v-if="side === 'W2T'">
+                            <RouterLink class="link" :to="'/card/' + card.id">
+                                {{ card.word }} | <span style="color: var(--color-text-soft)">{{ card.translation }}</span>
+                            </RouterLink>
+                        </div>
+                        <div v-if="side === 'T2W'">
+                            <RouterLink class="link" :to="'/card/' + card.id">
+                                {{ card.translation }} | <span style="color: var(--color-text-soft)">{{ card.word }}</span>
+                            </RouterLink>
+                        </div>
                         </p>
                     </div>
                 </div>
@@ -78,5 +86,10 @@ const cardsPerLevel = computed(() => {
     display: flex;
     flex-direction: column;
     max-width: 50rem;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--color-text);
 }
 </style>
