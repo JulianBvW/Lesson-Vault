@@ -58,6 +58,7 @@ function finishTraining() {
     <main>
         <div class="container">
             <h1>Trainieren</h1>
+            <p class="info" v-if="currentCard < cardsToTrain.length">{{ currentCard+1 }}/{{ cardsToTrain.length }}</p>
             <div v-if="currentCard < cardsToTrain.length" class="island training-card">
                 <p>{{ cardsToTrain[currentCard].front }}</p>
                 <div class="show-solution" v-if="!showSolution" @click="showSolution = !showSolution">
@@ -100,6 +101,14 @@ main {
     flex-direction: column;
     max-width: 50rem;
     height: 100%;
+}
+
+.info {
+    color: var(--color-text-soft);
+    height: 0;
+    margin-left: auto;
+    margin-right: 1rem;
+    translate: 0 -1rem;
 }
 
 .training-card {
