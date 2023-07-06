@@ -48,4 +48,10 @@ input {
     width: 100%;
     /* border-radius: 1rem; */
     font-size: 1.4rem;
-}</style>
+}
+
+.link {
+    text-decoration: none;
+    color: var(--color-text);
+}
+</style>
