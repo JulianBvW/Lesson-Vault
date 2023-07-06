@@ -70,6 +70,12 @@ function finishTraining() {
                     <button style="background-color: rgb(82, 184, 82);" v-if="showSolution"
                         @click="nextCard(true)">Richtig</button>
                 </div>
+                <!-- <div class="correct-buttons misc-buttons">
+                    <button style="background-color: rgb(201, 151, 151);" v-if="showSolution"
+                        @click="nextCard(false)">Merken</button>
+                    <button style="background-color: rgb(152, 194, 152);" v-if="showSolution"
+                        @click="nextCard(true)">+3</button>
+                </div> -->
             </div>
             <button v-if="currentCard < cardsToTrain.length" @click="finishTraining()" class="finish-training">Beenden</button>
             <div v-if="currentCard >= cardsToTrain.length" class="island summary">
@@ -140,6 +146,11 @@ main {
     font-weight: bolder;
     font-size: 1.4rem;
 }
+
+/* .misc-buttons button {
+    height: 4rem;
+    margin-top: -1rem;
+} */
 
 .summary {
     display: flex;
