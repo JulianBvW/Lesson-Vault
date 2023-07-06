@@ -48,6 +48,10 @@ function commitToStore() {
     piniaLessonsStore.updateAfterTraining(lessonId)
 }
 
+function finishTraining() {
+    cardsToTrain.value.splice(currentCard.value)
+}
+
 </script>
 
 <template>
@@ -67,6 +71,7 @@ function commitToStore() {
                         @click="nextCard(true)">Richtig</button>
                 </div>
             </div>
+            <button v-if="currentCard < cardsToTrain.length" @click="finishTraining()" class="finish-training">Beenden</button>
             <div v-if="currentCard >= cardsToTrain.length" class="island summary">
                 <p>Korrekt:</p>
                 <p style="font-size: 3rem;">{{ cardsToTrain.filter(c => c.correct).length }} / {{ cardsToTrain.length }}</p>
@@ -78,10 +83,17 @@ function commitToStore() {
 </template>
 
 <style scoped>
+main {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     max-width: 50rem;
+    height: 100%;
 }
 
 .training-card {
@@ -89,7 +101,7 @@ function commitToStore() {
     flex-direction: column;
     align-items: center;
     font-size: 1.4rem;
-    height: 60vh;
+    height: 65vh;
 }
 
 .training-card p {
@@ -99,7 +111,7 @@ function commitToStore() {
 
 .show-solution {
     width: 100%;
-    height: 100%;
+    height: calc( 100% - 1rem );
     border: none;
     border-radius: 1rem;
     background-color: var(--color-background-soft);
@@ -134,7 +146,15 @@ function commitToStore() {
     flex-direction: column;
     align-items: center;
     font-size: 1.4rem;
-    height: 60vh;
+    height: 65vh;
     padding-top: 3rem;
+}
+
+.finish-training {
+    border: none;
+    background-color: transparent;
+    color: var(--color-text-soft);
+    margin-top: auto;
+    margin-bottom: 1rem;
 }
 </style>

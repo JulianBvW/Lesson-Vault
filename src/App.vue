@@ -17,8 +17,8 @@ piniaCardsStore.loadFromLocalStorage()
             <component :is="Component" />
         </transition>
     </RouterView>
-    <div class="phantom"></div>
-    <NavBar />
+    <div class="phantom" v-if="$route.name !== 'train'"></div>
+    <NavBar v-if="$route.name !== 'train'" />
 </template>
 
 <style scoped>
