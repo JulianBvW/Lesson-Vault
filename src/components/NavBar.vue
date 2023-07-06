@@ -24,11 +24,11 @@ const page = computed(() => {
     <footer class="unselectable"> <!-- TODO make more beautiful (var() is available in <Icon>) -->
         <div v-if="page === 'groups'" @click="$router.push('/groups/')" class="navbar-icon active">
             <Icon :icon="iconGroup" color="#007AFF" :height="svgHeight" />
-            <p>Gruppen</p>
+            <p>Suche</p>
         </div>
         <div v-else @click="$router.push('/groups/')" class="navbar-icon">
             <Icon :icon="iconGroup" color="#959595" :height="svgHeight" />
-            <p>Gruppen</p>
+            <p>Suche</p>
         </div>
         
         <div v-if="page === 'home'" @click="$router.push('/')" class="navbar-icon active">

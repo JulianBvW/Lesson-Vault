@@ -109,6 +109,12 @@ export const useCardsStore = defineStore('cards', {
                 'cards': state.cards,
                 'nextId': state.nextId
             })
-        }
+        },
+        searchCards: (state) => {
+            return (search) => {
+                if (search === '') { return [] }
+                return state.cards.filter(card => card.word.includes(search) || card.translation.includes(search))
+            }
+        } 
     }
 })
