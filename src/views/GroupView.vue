@@ -18,14 +18,18 @@ const cards = computed(() => { return piniaCardsStore.searchCards(search.value) 
             <input class="island" v-model="search" type="text" placeholder="Suche" autofocus />
 
             <div class="island" v-if="cards.length > 0">
-                <p v-for="card in cards">
-                <div v-if="side === 'W2T'">
-                    <RouterLink :to="'/card/' + card.id">{{ card.word }}</RouterLink> | <span
-                        style="color: var(--color-text-soft)">{{ card.translation }}</span>
-                </div>
-                <div v-if="side === 'T2W'">{{ card.translation }} | <span style="color: var(--color-text-soft)">{{ card.word
-                }}</span></div>
-                </p>
+                        <p v-for="card in cards">
+                            <div v-if="side === 'W2T'">
+                                <RouterLink class="link" :to="'/card/' + card.id">
+                                    {{ card.word }} | <span style="color: var(--color-text-soft)">{{ card.translation }}</span>
+                                </RouterLink>
+                            </div>
+                            <div v-if="side === 'T2W'">
+                                <RouterLink class="link" :to="'/card/' + card.id">
+                                    {{ card.translation }} | <span style="color: var(--color-text-soft)">{{ card.word }}</span>
+                                </RouterLink>
+                            </div>
+                        </p>
             </div>
         </div>
     </main>
